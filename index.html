@@ -7,10 +7,10 @@
 </head>
 <body>
     <div id="app">
-        <input type="text">
+        <input type="text" v-model="inputValue">
         <button v-on:click="handleBtnClick">提交</button>
         <ul>
-            <li v-for=""item in list>{{item}}</li>
+            <li v-for="item in list">{{item}}</li>
         </ul>
     </div>
 
