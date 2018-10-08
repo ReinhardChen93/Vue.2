@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件传值-父组件传递值给子组件</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <counter :count = "0"></counter>
+        <counter :count = "1"></counter>
+    </div>
+    <script>
+        var counter = {
+            props: ['count'],
+            data: function () {
+                return {
+                    number:this.count
+                }
+            },
+            template: '<div @click="handleClick">{{number}}</div>',
+            methods:{
+                handleClick:function() {
+                    this.number++
+                },
+            }
+        }//局部组件
+        var vm = new Vue({
+            el:'#root',
+            components:{//注册局部组件
+                counter:counter,
+            },
+            data:{
+
+            },
+            methods : {
+                handleClick:function(){
+                    alert("hello world");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
