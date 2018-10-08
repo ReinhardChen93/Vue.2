@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <script src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 </head>
 <body>
     <div>
-        <input type="text">
-        <button>提交</button>
-        <ul></ul>
+        <input id="input" type="text">
+        <button id="btn">提交</button>
+        <ul id="list"></ul>
     </div>
     <script>
         function Page() {
 
         }
-
+        /*控制器*/
         $.extend(Page.prototype,{
             init:function () {
                 this.bindEvents()
@@ -25,7 +25,11 @@
                 btn.on('click',$.proxy(this.handleBtnClick,this))
             },
             handleBtnClick:function () {
-                alert('123');
+                var inputElem = $("#input");
+                var inputValue = inputElem.val();
+                var ulElem = $("#list");
+                ulElem.append('<li>' + inputValue + '</li>');
+                inputElem.val("");
             }
         })
 
