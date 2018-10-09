@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/Vue.js"></script>
+</head>
+<body>
+<div id="app">
+</div>
+
+<script>
+    /*生命周期函数就是Vue实例在某一个时间点会自动执行的函数*/
+    var app = new Vue({
+        el:'#app',
+        beforeCreate:function(){/*生命周期函数*/
+            
+        },
+        created:function () {
+
+        },
+        beforeMount:function () {
+            
+        },
+        mounted:function () {
+            
+        },
+        beforeDestroy:function () {
+            
+        },
+        destroy:function () {
+            
+        },
+        beforeUpdate:function () {
+            
+        },
+        updated:function(){
+
+        },
+        template:"<div>{{test}}</div>",
+        data:{
+            test:"hello world"
+        },
+        methods:{
+            handleBtnClick:function () {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        }
+    })
+</script>
+</body>
+</html>
