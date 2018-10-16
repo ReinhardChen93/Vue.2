@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>vue-css动画</title>
+    <link rel="stylesheet" href="css/animate.min.css">
     <script src="js/Vue.js"></script>
     <style>
-        /*<!--因为transition 取得名字叫做fade-->*/
+       /* !*<!--因为transition 取得名字叫做fade-->*!
         @keyframes bounce-in {
             0%{
                 -webkit-transform: scale(0);
@@ -37,13 +38,15 @@
         {
             transform-origin: left center;
             animation: bounce-in 1s reverse;
-        }
+        }*/
     </style>
 </head>
 <body>
 <div id="root">
     <!--因为transition 取得名字叫做fade-->
-    <transition name="fade">
+    <transition name="fade"
+                enter-active-class="animated swing"
+                leave-active-class="animated shake">
         <div v-if="show">Hello World</div>
     </transition>
     <button @click="handleClick">切换</button>
