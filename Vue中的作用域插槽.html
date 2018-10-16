@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在Vue中使用插槽</title>
+    <script src="js/Vue.js"></script>
+</head>
+<body>
+<!--child组件可能被很多地方调用，但是样式不一定一样，怎么办？如下-->
+<div id="root">
+    <child>
+        <!--一定要加一个template 然后加上slot-scope ，值可以自己随便定义-->
+        <template slot-scope="props">
+            <li>{{props.item}} -hello</li>
+        </template>
+    </child>
+</div>
+
+<script>
+    //插槽
+    Vue.component('child',{
+        data:function () {
+          return {
+              list:[1,2,3,4]
+          }
+        },
+        template:'<div>'+
+                    '<ul>'+
+                        '<slot v-for="item of list" :item=item></slot>'+
+                    '</ul>'+
+                 '</div>'
+    })
+    var vm = new Vue({
+        el:'#root',
+    })
+</script>
+</body>
+</html>
